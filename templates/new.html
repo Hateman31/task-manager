@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+		<hr>
+		<h3>Новая задача</h3>
+		<form action="/new" method="post">
+			<label for="title">Название</label>
+			<input name="title" id="title" required>
+			<label for="descr">Описание</label>
+			<input name="descr" id="descr" required>
+			<p><input type="submit" value="Создать"></p>
+		</form>
+<!--
+		<div>
+			<br>
+			<a href="{{last_url}}">Назад</a>
+		</div>
+-->
+{% endblock %}

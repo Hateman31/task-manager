@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+		<hr>
+		<h3>{{num}} "{{task_options['name']}}"</h3>
+		<form action="" method="post">
+			{% for option in task_options %}
+			<p> 
+				<a>{{ option }}</a>
+				<input type="text" name="{{option}}" value="{{task_options[option]|e }}">
+			</p>
+			{% endfor %}
+		<p><input type="submit" value="Обновить"></p>
+		</form>
+		<div>
+			<br>
+			<a href="/{{num}}">Назад</a>
+		</div>
+{% endblock %}

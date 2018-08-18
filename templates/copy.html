@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<hr>
+<form action="" method="post">
+	<h4>Номер нового проекта:</h4>
+	<p> 
+		<input type="text" name="target" value="">
+	</p>
+<p><input type="submit" value="Клонировать"></p>
+</form>
+
+<br>
+<div>
+	<a href="/{{num}}">Назад</a>
+</div>
+{% endblock %}

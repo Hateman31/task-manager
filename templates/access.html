@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form method="post" name="checks" overflow="yes">
+	{% for cc in cc_list %}
+	<p> 
+		<label> 
+			<input type="checkbox" name="{{ cc['id'] }}">	
+			{{cc['name']}} 
+		</label>
+	</p>
+	{% else %}
+	<P>Список пуст!</P>
+	{% endfor %}
+	
+	<p><input type="submit" value="OK"></p>
+</form>			
+
+<br>
+<div>
+	<a href="/{{num}}">Назад</a>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<table>
+	{% for data in cc_data %}
+	<tr> 
+		<td> 
+			{{data['name']}} 
+		</td>
+		<td> 
+			http://belofon-online.ru/modules/quota/ext/?action=quota&ccGUID={{data['guid']}}&project={{num}}
+		</td>
+	</tr>
+	{% else %}
+	<P>Список пуст!</P>
+	{% endfor %}
+	
+</table>
+
+<br>
+<div>
+	<a href="/{{num}}">Назад</a>
+</div>
+{% endblock %}

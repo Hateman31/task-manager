@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+		<hr>
+		{% if task_options %}
+		<h3>{{num}} "{{task_options['name']}}"</h3>
+		<table>
+			{% for option in task_options %}
+			<tr>
+				<td>
+					{{option}}
+				</td>
+				<td>
+					{{task_options[option]|e}}
+				</td>
+			</tr>
+			{% endfor %}
+		</table>
+		<a href="/edit/{{num}}"><b>Редактировать</b></a>
+		<div>
+			<a href="/access/{{num}}">Дать доступ подрядам</a> 
+		</div>
+		<div>
+			<a href="/access/link/{{num}}">Ссылки на проект</a>
+		</div>		
+		<div>
+			<a href="/access/del/{{num}}">Снять доступ на проект</a>
+		</div>
+		<div>
+			<a href="/get_view/{{num}}">Получить скрипт набора номеров</a> 
+		</div>		
+		<div>
+			<a href="/copy/{{num}}">Клонировать проект</a>
+		</div>
+		{% else %}
+		<h3>Задачи не существует!</h3>
+		{% endif %}
+{% endblock %}
