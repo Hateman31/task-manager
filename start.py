@@ -13,13 +13,13 @@ def start():
         else:
             return render_template("error.html")
     
-    task_list = utils.getActiveTaskList()
-    return render_template("choice.html",task_list=task_list)
-    #try:
-        #task_list = utils.getActiveTaskList()
-        #return render_template("choice.html",task_list=task_list)
-    #except:
-        #return render_template("error.html")
+    #task_list = utils.getActiveTaskList()
+    #return render_template("choice.html",task_list=task_list)
+    try:
+        task_list = utils.getActiveTaskList()
+        return render_template("choice.html",task_list=task_list)
+    except:
+        return render_template("error.html")
 
 @app.route("/<int:num>",methods = ['GET','POST'])
 def getTask(num = None):
@@ -31,15 +31,21 @@ def getTask(num = None):
             form[field] = request.form[field]
         utils.setTask(form)
         
-    try:
-        task_options = utils.sp_getTask(num)
-        return render_template (
-            'task.html',
-            task_options = task_options,
-            num = num
-        )
-    except:
-        return render_template("error.html")
+    task = utils.sp_getTask(num)
+    return render_template (
+        'task.html',
+        task = task,
+        num = num
+    )
+    #try:
+        #task_options = utils.sp_getTask(num)
+        #return render_template (
+            #'task.html',
+            #task_options = task_options,
+            #num = num
+        #)
+    #except:
+        #return render_template("error.html")
     
 @app.route("/edit/<int:num>",methods = ['GET','POST'])
 def editTask(num = None):

@@ -11,19 +11,10 @@ CONFIG_STR = (
 TASKS = []
 
 def sp_getTask(num = None):
-	
-	q = 'sp_getTask ?'
-	
-	con = pyodbc.connect(CONFIG_STR)
-	cur = con.cursor()
-	cur.execute(q,num)
-	
-	if cur.rowcount != 0:
-		table = [x for x in cur.fetchone()]
-		cols = [column[0] for column in cur.description]
-		return {col.lower():value for col,value in zip(cols,table)}
-	
-	return None
+	try:
+		return TASKS[num]
+	except IndexError:
+		return None
 
 def sp_getCCList(num = None):
 	
